@@ -1,0 +1,306 @@
+$background-colour: #29D4C7;
+$animation-time: 0.5s;
+$text-colour: #373737;
+
+@font-face {
+	font-family: "proxima-nova-reg";
+	src: url("../assets/fonts/ProximaNova-Regular.woff");
+}
+
+@font-face {
+	font-family: "proxima-nova-bold";
+	src: url("../assets/fonts/ProximaNova-Bold.woff");
+}
+
+body {
+	
+}
+
+#background {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: -1000;
+	
+	.block {
+		background-color: $background-colour;
+		width: 100%;
+		height: 500px;
+	}
+	
+	.angle {
+		margin-top: -1px;
+		border-top-color: $background-colour;
+		border-top-style: solid;
+		border-left-color: rgba(255, 255, 255, 0);
+		border-left-style: solid;
+		transform: rotate(-0.05deg);
+	}
+}
+
+.centre-column {
+	max-width: 940px;
+	margin: 0 auto;
+	padding: 0px 0px;
+}
+
+#logo {
+	position: relative;
+	background-image: url(../assets/logo.png);
+	width: 47px;
+	height: 38px;
+	margin-top: 36px;
+}
+
+#title {
+	position: relative;
+	background: url(../assets/title.png) right no-repeat;
+	background-size: 403px;
+	width: 100%;
+	height: 134px;
+	margin-top: 86px;
+	right: 0px;
+	transition: background-size 0.5s;
+}
+
+#video-container {
+	position: relative;
+	margin-top: 50px;
+	width: 100%;
+	padding-top:56.2%;
+	background-color: black;
+	
+}
+
+#video-display {
+	position: absolute;
+	top: 0px;
+	left:0px;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0;
+	
+	iframe {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+}
+
+#video-thumbs {
+	position: relative;
+	margin-top: 10px;
+	width: 100%;	
+	background-color: white;
+	font-size: 0;
+	
+	.video-thumbnail {
+		padding: 0px;
+		position: relative;
+		display: inline-block;
+		width: 25%;
+		padding-top: 14%;
+		background-color: black;
+		overflow: hidden;
+		opacity: 0;
+		
+		.play-button-overlay {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background: transparent url('../assets/play-icon.png') no-repeat center;
+			background-size: 25%;
+			z-index: 10;
+			visibility: hidden;
+		}
+		
+		img {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			transition: width $animation-time, height $animation-time, top $animation-time, left $animation-time;
+		}
+	}
+	
+	.video-thumbnail:hover {
+		
+		img {			
+			top: -5%;
+			left: -5%;
+			width: 110%;
+			height: 110%;
+		}
+	}
+	
+	.video-thumbnail.playing {
+		
+		.play-button-overlay {
+			visibility: visible;
+		}
+	}
+}
+
+#video-title {
+	margin-top: 90px;
+	font-family: 'proxima-nova-bold';
+	font-size:26px;
+}
+
+#video-description {
+	margin-top: 45px;
+	width: 100%;
+	font-size: 0;
+	
+	.text-columns {
+		width: 100%;
+		color:$text-colour;
+		column-count: 2;
+		column-gap: 20px;
+		
+		p {
+			font-family: 'proxima-nova-reg';
+			margin-top: 0px;
+			font-size: 16px;
+			height: auto;
+		}
+	}
+}
+
+#footer {
+	background-color: #373737;
+	width: 100%;
+	height: 180px;
+	margin-top: 180px;
+	
+	.centre-column {
+		position: relative;
+		
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+#copyright-notice {
+	position: absolute;
+	font-family: 'proxima-nova-reg';
+	top: 55px;
+	left: 0px;
+	font-size: 12px;
+	color: #d1d1d1;
+}
+
+#contact-us-button {
+	position: absolute;
+	right: 0px;
+	top: 40px;
+	border: 1px solid #d1d1d1;
+	border-radius: 3px;
+	background-color: transparent;
+	
+	width: 140px;
+	height: 50px;
+	
+	font-family: 'proxima-nova-reg';
+	font-size: 14px;
+	color: #d1d1d1;
+	
+	line-height: 50px;
+	text-align: center;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    
+	.centre-column {
+		margin: 0 auto;
+		padding: 0px 30px;
+	}
+	
+	#copyright-notice {
+		margin-left: 30px;
+	}
+	
+	#contact-us-button {
+		margin-right: 30px;
+	}
+}
+
+@media only screen and (max-width: 580px) {
+	
+	#copyright-notice {
+		position: relative;
+		margin-left: 0px;
+	}
+	
+	#contact-us-button {
+		position: relative;
+		margin-bottom: 40px;
+		margin-right: 0px;
+		width: auto;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+    
+	#title {
+		background-size: 250px;
+	}
+	
+	#video-thumbs {
+	
+		.video-thumbnail {
+			padding: 0px;
+			position: relative;
+			display: inline-block;
+			width: 50%;
+			padding-top: 28%;
+			background-color: black;
+		}
+	}
+	
+	#video-description {
+		width: 100%;
+		font-size: 0;
+
+		.text-columns {
+			width: 100%;
+			color:$text-colour;
+			display: block;
+			column-count: 1;
+			column-gap: 0px;
+
+			p {
+				margin-top: 0px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
